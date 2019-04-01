@@ -1,0 +1,2339 @@
+{
+   "library" : {
+      "identifier" : {
+         "id" : "Demo",
+         "version" : "1.0.0"
+      },
+      "schemaIdentifier" : {
+         "id" : "urn:hl7-org:elm",
+         "version" : "r1"
+      },
+      "usings" : {
+         "def" : [ {
+            "localIdentifier" : "System",
+            "uri" : "urn:hl7-org:elm-types:r1"
+         }, {
+            "localIdentifier" : "FHIR",
+            "uri" : "http://hl7.org/fhir",
+            "version" : "3.0.0"
+         } ]
+      },
+      "includes" : {
+         "def" : [ {
+            "localIdentifier" : "FHIRHelpers",
+            "path" : "FHIRHelpers",
+            "version" : "3.0.0"
+         } ]
+      },
+      "parameters" : {
+         "def" : [ {
+            "resultTypeName" : "{http://hl7.org/fhir}DeviceRequest",
+            "name" : "device_request",
+            "accessLevel" : "Public",
+            "parameterTypeSpecifier" : {
+               "resultTypeName" : "{http://hl7.org/fhir}DeviceRequest",
+               "name" : "{http://hl7.org/fhir}DeviceRequest",
+               "type" : "NamedTypeSpecifier"
+            }
+         } ]
+      },
+      "codeSystems" : {
+         "def" : [ {
+            "name" : "ICD-10-CM",
+            "id" : "http://hl7.org/fhir/sid/icd-10-cm",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         }, {
+            "name" : "LOINC",
+            "id" : "http://loinc.org",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            }
+         } ]
+      },
+      "codes" : {
+         "def" : [ {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J44",
+            "id" : "J44",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J44.0",
+            "id" : "J44.0",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J44.1",
+            "id" : "J44.1",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J44.9",
+            "id" : "J44.9",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J47",
+            "id" : "J47",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J47.0",
+            "id" : "J47.0",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J47.1",
+            "id" : "J47.1",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J47.9",
+            "id" : "J47.9",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84",
+            "id" : "J84",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.0",
+            "id" : "J84.0",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.01",
+            "id" : "J84.01",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.02",
+            "id" : "J84.02",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.03",
+            "id" : "J84.03",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.09",
+            "id" : "J84.09",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.1",
+            "id" : "J84.1",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.10",
+            "id" : "J84.10",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.11",
+            "id" : "J84.11",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.111",
+            "id" : "J84.111",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.112",
+            "id" : "J84.112",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.113",
+            "id" : "J84.113",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.114",
+            "id" : "J84.114",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.115",
+            "id" : "J84.115",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.116",
+            "id" : "J84.116",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.117",
+            "id" : "J84.117",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.17",
+            "id" : "J84.17",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.2",
+            "id" : "J84.2",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.8",
+            "id" : "J84.8",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.81",
+            "id" : "J84.81",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.82",
+            "id" : "J84.82",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.83",
+            "id" : "J84.83",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.84",
+            "id" : "J84.84",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.841",
+            "id" : "J84.841",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.842",
+            "id" : "J84.842",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.843",
+            "id" : "J84.843",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.848",
+            "id" : "J84.848",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.89",
+            "id" : "J84.89",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "J84.9",
+            "id" : "J84.9",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84",
+            "id" : "E84",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.0",
+            "id" : "E84.0",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.1",
+            "id" : "E84.1",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.11",
+            "id" : "E84.11",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.19",
+            "id" : "E84.19",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.8",
+            "id" : "E84.8",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "E84.9",
+            "id" : "E84.9",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "I27.0",
+            "id" : "I27.0",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "I27.2",
+            "id" : "I27.2",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "R09.02",
+            "id" : "R09.02",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "ICD-10-CM",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+            "name" : "59408-5",
+            "id" : "59408-5",
+            "accessLevel" : "Public",
+            "codeSystem" : {
+               "name" : "LOINC",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               }
+            }
+         } ]
+      },
+      "statements" : {
+         "def" : [ {
+            "name" : "COPD_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J44",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J44.0",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J44.1",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J44.9",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Bronchiectasis_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J47",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J47.0",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J47.1",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J47.9",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Diffuse_interstitial_lung_disease_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.0",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.01",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.02",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.03",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.09",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.1",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.10",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.11",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.111",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.112",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.113",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.114",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.115",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.116",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.117",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.17",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.2",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.8",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.81",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.82",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.83",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.84",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.841",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.842",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.843",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.848",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.89",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "J84.9",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Cystic_fibrosis_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.0",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.1",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.11",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.19",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.8",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "E84.9",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Pulmonary_hypertension_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "I27.0",
+                  "type" : "CodeRef"
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "I27.2",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Hypoxemia_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "R09.02",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Arterial_oxygen_saturation_Codes",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}Code",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "List",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}Code",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "element" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Code",
+                  "name" : "59408-5",
+                  "type" : "CodeRef"
+               } ]
+            }
+         }, {
+            "name" : "Patient",
+            "context" : "Patient",
+            "expression" : {
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "dataType" : "{http://hl7.org/fhir}Patient",
+                  "type" : "Retrieve"
+               }
+            }
+         }, {
+            "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+            "name" : "PatientName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "type" : "Query",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{http://hl7.org/fhir}HumanName",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "source" : [ {
+                     "alias" : "name",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}HumanName",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "expression" : {
+                        "path" : "name",
+                        "type" : "Property",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}HumanName",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : {
+                           "name" : "Patient",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Equal",
+                     "operand" : [ {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "path" : "value",
+                        "type" : "Property",
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}NameUse",
+                           "path" : "use",
+                           "scope" : "name",
+                           "type" : "Property"
+                        }
+                     }, {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "official",
+                        "type" : "Literal"
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "PatientLastName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}string",
+                  "path" : "family",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+                     "name" : "PatientName",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "PatientMiddleInitial",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "Substring",
+               "stringToSub" : {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "Combine",
+                  "source" : {
+                     "type" : "Query",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "source" : [ {
+                        "alias" : "given",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}string",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "expression" : {
+                           "path" : "given",
+                           "type" : "Property",
+                           "resultTypeSpecifier" : {
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "name" : "{http://hl7.org/fhir}string",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "source" : {
+                              "name" : "PatientName",
+                              "type" : "ExpressionRef"
+                           }
+                        }
+                     } ],
+                     "relationship" : [ ],
+                     "return" : {
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "expression" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "Substring",
+                           "stringToSub" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                              "path" : "value",
+                              "scope" : "given",
+                              "type" : "Property"
+                           },
+                           "startIndex" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "0",
+                              "type" : "Literal"
+                           },
+                           "length" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "1",
+                              "type" : "Literal"
+                           }
+                        }
+                     }
+                  },
+                  "separator" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : ", ",
+                     "type" : "Literal"
+                  }
+               },
+               "startIndex" : {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "value" : "3",
+                  "type" : "Literal"
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "PatientFirstName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}string",
+                  "type" : "Indexer",
+                  "operand" : [ {
+                     "path" : "given",
+                     "type" : "Property",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}string",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "source" : {
+                        "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+                        "name" : "PatientName",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "PatientGender",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}AdministrativeGender",
+                  "path" : "gender",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}Patient",
+                     "name" : "Patient",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "name" : "RelevantDiagnoses",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "type" : "Except",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "operand" : [ {
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "COPD_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "COPD",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "Bronchiectasis_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Bronchiectasis",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "Diffuse_interstitial_lung_disease_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Diffuse Interstitial Lung Disease",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "Cystic_fibrosis_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Cystic Fibrosis",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "Pulmonary_hypertension_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Pulmonary Hypertension",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "If",
+                     "condition" : {
+                        "asType" : "{urn:hl7-org:elm-types:r1}Boolean",
+                        "type" : "As",
+                        "operand" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Exists",
+                           "operand" : {
+                              "dataType" : "{http://hl7.org/fhir}Condition",
+                              "codeProperty" : "code",
+                              "type" : "Retrieve",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Condition",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "codes" : {
+                                 "name" : "Hypoxemia_Codes",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        }
+                     },
+                     "then" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "Hypoxemia",
+                        "type" : "Literal"
+                     },
+                     "else" : {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "null",
+                        "type" : "Literal"
+                     }
+                  } ]
+               }, {
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "null",
+                     "type" : "Literal"
+                  } ]
+               } ]
+            }
+         }, {
+            "resultTypeName" : "{http://hl7.org/fhir}Coding",
+            "name" : "DeviceRequestHcpcsCoding",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{http://hl7.org/fhir}Coding",
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "type" : "Query",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{http://hl7.org/fhir}Coding",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "source" : [ {
+                     "alias" : "coding",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}Coding",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "expression" : {
+                        "path" : "coding",
+                        "type" : "Property",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}Coding",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                           "strict" : true,
+                           "type" : "As",
+                           "operand" : {
+                              "path" : "code",
+                              "type" : "Property",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ChoiceTypeSpecifier",
+                                 "choice" : [ {
+                                    "name" : "{http://hl7.org/fhir}Reference",
+                                    "type" : "NamedTypeSpecifier"
+                                 }, {
+                                    "name" : "{http://hl7.org/fhir}CodeableConcept",
+                                    "type" : "NamedTypeSpecifier"
+                                 } ]
+                              },
+                              "source" : {
+                                 "resultTypeName" : "{http://hl7.org/fhir}DeviceRequest",
+                                 "name" : "device_request",
+                                 "type" : "ParameterRef"
+                              }
+                           },
+                           "asTypeSpecifier" : {
+                              "resultTypeName" : "{http://hl7.org/fhir}CodeableConcept",
+                              "name" : "{http://hl7.org/fhir}CodeableConcept",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Equal",
+                     "operand" : [ {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "path" : "value",
+                        "type" : "Property",
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}uri",
+                           "path" : "system",
+                           "scope" : "coding",
+                           "type" : "Property"
+                        }
+                     }, {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
+                        "type" : "Literal"
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "DeviceRequestDescription",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "Concatenate",
+               "operand" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "Concatenate",
+                  "operand" : [ {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "type" : "Concatenate",
+                     "operand" : [ {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "HCPCS ",
+                        "type" : "Literal"
+                     }, {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "path" : "value",
+                        "type" : "Property",
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}code",
+                           "path" : "code",
+                           "type" : "Property",
+                           "source" : {
+                              "resultTypeName" : "{http://hl7.org/fhir}Coding",
+                              "name" : "DeviceRequestHcpcsCoding",
+                              "type" : "ExpressionRef"
+                           }
+                        }
+                     } ]
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : " - ",
+                     "type" : "Literal"
+                  } ]
+               }, {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "path" : "value",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}string",
+                     "path" : "display",
+                     "type" : "Property",
+                     "source" : {
+                        "resultTypeName" : "{http://hl7.org/fhir}Coding",
+                        "name" : "DeviceRequestHcpcsCoding",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               } ]
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "DeviceRequestedIsPortable",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "In",
+               "operand" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "path" : "value",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}code",
+                     "path" : "code",
+                     "type" : "Property",
+                     "source" : {
+                        "resultTypeName" : "{http://hl7.org/fhir}Coding",
+                        "name" : "DeviceRequestHcpcsCoding",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               }, {
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0433",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0434",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0444",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "EO431",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "K0738",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0443",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E1392",
+                     "type" : "Literal"
+                  } ]
+               } ]
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+            "name" : "DeviceRequestedIsStationary",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+               "type" : "In",
+               "operand" : [ {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "path" : "value",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}code",
+                     "path" : "code",
+                     "type" : "Property",
+                     "source" : {
+                        "resultTypeName" : "{http://hl7.org/fhir}Coding",
+                        "name" : "DeviceRequestHcpcsCoding",
+                        "type" : "ExpressionRef"
+                     }
+                  }
+               }, {
+                  "type" : "List",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "element" : [ {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0439",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0442",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0424",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E0441",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E1390",
+                     "type" : "Literal"
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : "E1391",
+                     "type" : "Literal"
+                  } ]
+               } ]
+            }
+         }, {
+            "resultTypeName" : "{http://hl7.org/fhir}Practitioner",
+            "name" : "OrderingProvider",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{http://hl7.org/fhir}Practitioner",
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "type" : "Query",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{http://hl7.org/fhir}Practitioner",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "source" : [ {
+                     "alias" : "practitioner",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}Practitioner",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "expression" : {
+                        "dataType" : "{http://hl7.org/fhir}Practitioner",
+                        "type" : "Retrieve",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}Practitioner",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        }
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Equal",
+                     "operand" : [ {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "type" : "Concatenate",
+                        "operand" : [ {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                           "value" : "Practitioner/",
+                           "type" : "Literal"
+                        }, {
+                           "name" : "ToString",
+                           "libraryName" : "FHIRHelpers",
+                           "type" : "FunctionRef",
+                           "operand" : [ {
+                              "resultTypeName" : "{http://hl7.org/fhir}id",
+                              "path" : "id",
+                              "scope" : "practitioner",
+                              "type" : "Property"
+                           } ]
+                        } ]
+                     }, {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "path" : "value",
+                        "type" : "Property",
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}string",
+                           "path" : "reference",
+                           "type" : "Property",
+                           "source" : {
+                              "resultTypeName" : "{http://hl7.org/fhir}Reference",
+                              "path" : "performer",
+                              "type" : "Property",
+                              "source" : {
+                                 "resultTypeName" : "{http://hl7.org/fhir}DeviceRequest",
+                                 "name" : "device_request",
+                                 "type" : "ParameterRef"
+                              }
+                           }
+                        }
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+            "name" : "OrderingProviderName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+               "type" : "SingletonFrom",
+               "operand" : {
+                  "type" : "Query",
+                  "resultTypeSpecifier" : {
+                     "type" : "ListTypeSpecifier",
+                     "elementType" : {
+                        "name" : "{http://hl7.org/fhir}HumanName",
+                        "type" : "NamedTypeSpecifier"
+                     }
+                  },
+                  "source" : [ {
+                     "alias" : "name",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}HumanName",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "expression" : {
+                        "path" : "name",
+                        "type" : "Property",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}HumanName",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : {
+                           "name" : "OrderingProvider",
+                           "type" : "ExpressionRef"
+                        }
+                     }
+                  } ],
+                  "relationship" : [ ],
+                  "where" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                     "type" : "Equal",
+                     "operand" : [ {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "path" : "value",
+                        "type" : "Property",
+                        "source" : {
+                           "resultTypeName" : "{http://hl7.org/fhir}NameUse",
+                           "path" : "use",
+                           "scope" : "name",
+                           "type" : "Property"
+                        }
+                     }, {
+                        "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                        "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                        "value" : "official",
+                        "type" : "Literal"
+                     } ]
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "OrderingProviderLastName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}string",
+                  "path" : "family",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+                     "name" : "OrderingProviderName",
+                     "type" : "ExpressionRef"
+                  }
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "OrderingProviderMiddleInitial",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "type" : "Substring",
+               "stringToSub" : {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                  "type" : "Combine",
+                  "source" : {
+                     "type" : "Query",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "source" : [ {
+                        "alias" : "given",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}string",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "expression" : {
+                           "path" : "given",
+                           "type" : "Property",
+                           "resultTypeSpecifier" : {
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "name" : "{http://hl7.org/fhir}string",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "source" : {
+                              "name" : "OrderingProviderName",
+                              "type" : "ExpressionRef"
+                           }
+                        }
+                     } ],
+                     "relationship" : [ ],
+                     "return" : {
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{urn:hl7-org:elm-types:r1}String",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "expression" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                           "type" : "Substring",
+                           "stringToSub" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                              "path" : "value",
+                              "scope" : "given",
+                              "type" : "Property"
+                           },
+                           "startIndex" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "0",
+                              "type" : "Literal"
+                           },
+                           "length" : {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                              "value" : "1",
+                              "type" : "Literal"
+                           }
+                        }
+                     }
+                  },
+                  "separator" : {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                     "value" : ", ",
+                     "type" : "Literal"
+                  }
+               },
+               "startIndex" : {
+                  "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                  "value" : "3",
+                  "type" : "Literal"
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "OrderingProviderFirstName",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}string",
+                  "type" : "Indexer",
+                  "operand" : [ {
+                     "path" : "given",
+                     "type" : "Property",
+                     "resultTypeSpecifier" : {
+                        "type" : "ListTypeSpecifier",
+                        "elementType" : {
+                           "name" : "{http://hl7.org/fhir}string",
+                           "type" : "NamedTypeSpecifier"
+                        }
+                     },
+                     "source" : {
+                        "resultTypeName" : "{http://hl7.org/fhir}HumanName",
+                        "name" : "OrderingProviderName",
+                        "type" : "ExpressionRef"
+                     }
+                  }, {
+                     "resultTypeName" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "valueType" : "{urn:hl7-org:elm-types:r1}Integer",
+                     "value" : "0",
+                     "type" : "Literal"
+                  } ]
+               }
+            }
+         }, {
+            "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+            "name" : "OrderingProviderNPI",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "expression" : {
+               "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+               "path" : "value",
+               "type" : "Property",
+               "source" : {
+                  "resultTypeName" : "{http://hl7.org/fhir}string",
+                  "path" : "value",
+                  "type" : "Property",
+                  "source" : {
+                     "resultTypeName" : "{http://hl7.org/fhir}Identifier",
+                     "type" : "SingletonFrom",
+                     "operand" : {
+                        "type" : "Query",
+                        "resultTypeSpecifier" : {
+                           "type" : "ListTypeSpecifier",
+                           "elementType" : {
+                              "name" : "{http://hl7.org/fhir}Identifier",
+                              "type" : "NamedTypeSpecifier"
+                           }
+                        },
+                        "source" : [ {
+                           "alias" : "identifier",
+                           "resultTypeSpecifier" : {
+                              "type" : "ListTypeSpecifier",
+                              "elementType" : {
+                                 "name" : "{http://hl7.org/fhir}Identifier",
+                                 "type" : "NamedTypeSpecifier"
+                              }
+                           },
+                           "expression" : {
+                              "path" : "identifier",
+                              "type" : "Property",
+                              "resultTypeSpecifier" : {
+                                 "type" : "ListTypeSpecifier",
+                                 "elementType" : {
+                                    "name" : "{http://hl7.org/fhir}Identifier",
+                                    "type" : "NamedTypeSpecifier"
+                                 }
+                              },
+                              "source" : {
+                                 "name" : "OrderingProvider",
+                                 "type" : "ExpressionRef"
+                              }
+                           }
+                        } ],
+                        "relationship" : [ ],
+                        "where" : {
+                           "resultTypeName" : "{urn:hl7-org:elm-types:r1}Boolean",
+                           "type" : "Equal",
+                           "operand" : [ {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                              "path" : "value",
+                              "type" : "Property",
+                              "source" : {
+                                 "resultTypeName" : "{http://hl7.org/fhir}uri",
+                                 "path" : "system",
+                                 "scope" : "identifier",
+                                 "type" : "Property"
+                              }
+                           }, {
+                              "resultTypeName" : "{urn:hl7-org:elm-types:r1}String",
+                              "valueType" : "{urn:hl7-org:elm-types:r1}String",
+                              "value" : "http://hl7.org/fhir/sid/us-npi",
+                              "type" : "Literal"
+                           } ]
+                        }
+                     }
+                  }
+               }
+            }
+         }, {
+            "name" : "ArterialOxygenSaturation",
+            "context" : "Patient",
+            "accessLevel" : "Public",
+            "resultTypeSpecifier" : {
+               "type" : "ListTypeSpecifier",
+               "elementType" : {
+                  "name" : "{http://hl7.org/fhir}Observation",
+                  "type" : "NamedTypeSpecifier"
+               }
+            },
+            "expression" : {
+               "dataType" : "{http://hl7.org/fhir}Observation",
+               "codeProperty" : "code",
+               "type" : "Retrieve",
+               "resultTypeSpecifier" : {
+                  "type" : "ListTypeSpecifier",
+                  "elementType" : {
+                     "name" : "{http://hl7.org/fhir}Observation",
+                     "type" : "NamedTypeSpecifier"
+                  }
+               },
+               "codes" : {
+                  "name" : "Arterial_oxygen_saturation_Codes",
+                  "type" : "ExpressionRef"
+               }
+            }
+         } ]
+      }
+   }
+}
+
