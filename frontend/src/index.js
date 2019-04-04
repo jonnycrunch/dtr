@@ -2,8 +2,9 @@ import "whatwg-fetch"; // a window.fetch polyfill
 import "fhirclient"; // sets window.FHIR
 // import demoElm from "./cql/Demo.json";
 import cqlfhir from "cql-exec-fhir";
-import executeElm from "./elmExecutor/buildElmExecutor";
+import executeElm from "./elmExecutor/executeElm";
 import urlUtils from "./util/url";
+import fetchArtifacts from "./util/fetchArtifacts";
 
 import React from "react";
 import ReactDOM from "react-dom";
@@ -65,82 +66,78 @@ const valueSetDB = {};
 //     go(smart);
 //   });
 
-
-const devreq = {
-  "resourceType": "DeviceRequest",
-  "id": "devreq013",
-  "meta": {
-    "versionId": "1",
-    "lastUpdated": "2019-03-28T12:04:26.239-04:00",
-    "profile": [
-      "http://hl7.org/fhir/us/davinci-crd/STU3/StructureDefinition/profile-devicerequest-stu3"
-    ]
-  },
-  "extension": [
-    {
-      "url": "http://build.fhir.org/ig/HL7/davinci-crd/STU3/ext-insurance.html",
-      "valueReference": {
-        "reference": "Coverage/cov013"
-      }
-    }
-  ],
-  "status": "draft",
-  "codeCodeableConcept": {
-    "coding": [
-      {
-        "system": "https://bluebutton.cms.gov/resources/codesystem/hcpcs",
-        "code": "E0424",
-        "display": "Stationary Compressed Gaseous Oxygen System, Rental"
-      }
-    ]
-  },
-  "subject": {
-    "reference": "Patient/pat013"
-  },
-  "performer": {
-    "reference": "Practitioner/pra1234"
-  }
-}
-
-const fhirWrapper = cqlfhir.FHIRWrapper.FHIRv300()
-const fhir_devreq = fhirWrapper.wrap(devreq)
-
 var smart = FHIR.client({
   serviceUrl: "http://localhost:8080/fhir",
   patientId: "pat013"
 });
 
-var old_elm_string = "";
 
-function go() {
-  fetch('Demo.json')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(elmJson) {
-      let elm_string = JSON.stringify(elmJson)
-      if (old_elm_string == elm_string) return;
-      old_elm_string = elm_string;
-      document.body.innerHTML = "Calculating...";
-      const executionInputs = {
-        elm: elmJson,
-        elmDependencies: {},
-        valueSetDB: valueSetDB,
-        parameters: {device_request: fhir_devreq}
-        // parameters: {}
-      }
-      executeElm(smart, "stu3", executionInputs,
-        function(results) {
-          console.log("RESULTS", results);
-          document.body.innerHTML = "Done, results in console.";
-          // document.body.innerHTML = "RESULTS<pre>" + JSON.stringify(results, null, 2) + "</pre>";
-        },
-        function(error) {
-          console.error("ERROR", error);
-          document.body.innerHTML = "ERROR<pre>" + JSON.stringify(error, null, 2) + "</pre>";
-        }
-      );
-    });
-}
+const DEVICE_REQUEST_ID = "devreq013";
+const QUESTIONNAIRE_URI = "urn:hl7:davinci:crd:home-oxygen-questionnaire";
+const FHIR_URI_PREFIX = "http://localhost:8090/fetchFhirUri/";
 
-setInterval(function(){ go(); }, 1000);
+
+const fhirWrapper = cqlfhir.FHIRWrapper.FHIRv300()
+
+
+
+fetchArtifacts(FHIR_URI_PREFIX, QUESTIONNAIRE_URI, smart, DEVICE_REQUEST_ID)
+.then(function(artifacts){
+  console.log("fetched needed artifacts:", artifacts)
+  //artifacts.questionnaire
+  const executionInputs = {
+    elm: artifacts.mainLibraryElm,
+    elmDependencies: artifacts.dependentElms,
+    valueSetDB: valueSetDB,
+    parameters: {device_request: fhirWrapper.wrap(artifacts.deviceRequest)}
+  }
+  executeElm(smart, "stu3", executionInputs,
+    function(results) {
+      console.log("RESULTS", results);
+      document.body.innerHTML = "Done, results in console.";
+      // document.body.innerHTML = "RESULTS<pre>" + JSON.stringify(results, null, 2) + "</pre>";
+    },
+    function(error) {
+      console.error("ERROR", error);
+      document.body.innerHTML = "ERROR<pre>" + JSON.stringify(error, null, 2) + "</pre>";
+    }
+  );
+
+  }
+);
+
+
+
+// var old_elm_string = "";
+// function go() {
+//   fetch('Demo.json')
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(elmJson) {
+//       let elm_string = JSON.stringify(elmJson)
+//       if (old_elm_string == elm_string) return;
+//       old_elm_string = elm_string;
+//       document.body.innerHTML = "Calculating...";
+//       const executionInputs = {
+//         elm: elmJson,
+//         elmDependencies: {},
+//         valueSetDB: valueSetDB,
+//         parameters: {device_request: fhir_devreq}
+//         // parameters: {}
+//       }
+//       executeElm(smart, "stu3", executionInputs,
+//         function(results) {
+//           console.log("RESULTS", results);
+//           document.body.innerHTML = "Done, results in console.";
+//           // document.body.innerHTML = "RESULTS<pre>" + JSON.stringify(results, null, 2) + "</pre>";
+//         },
+//         function(error) {
+//           console.error("ERROR", error);
+//           document.body.innerHTML = "ERROR<pre>" + JSON.stringify(error, null, 2) + "</pre>";
+//         }
+//       );
+//     });
+// }
+
+// setInterval(function(){ go(); }, 1000);

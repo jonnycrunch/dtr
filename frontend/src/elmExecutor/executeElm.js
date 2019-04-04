@@ -1,6 +1,6 @@
 import cql from "cql-execution";
 import cqlfhir from "cql-exec-fhir";
-import fhirhelpersElm from "./FHIRHelpers.json";
+// import fhirhelpersElm from "./FHIRHelpers.json";
 import extractFhirResourcesThatNeedFetching from "./extractFhirResourcesThatNeedFetching";
 import buildPopulatedResourceBundle from "./buildPopulatedResourceBundle";
 
@@ -22,7 +22,7 @@ function executeElm(smart, fhirVersion, executionInputs, resolve, reject) {
 }
 
 function executeElmAgainstPatientSource(executionInputs, patientSource) {
-  executionInputs.elmDependencies = [ fhirhelpersElm ]
+  // executionInputs.elmDependencies = [ fhirhelpersElm ]
   const repository = new cql.Repository(executionInputs.elmDependencies);
   const lib = new cql.Library(executionInputs.elm, repository);
   const codeService = new cql.CodeService(executionInputs.valueSetDB);

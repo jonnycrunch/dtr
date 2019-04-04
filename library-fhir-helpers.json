@@ -1,0 +1,50 @@
+{
+  "resourceType": "Library",
+  "id": "urn:hl7:davinci:crd:library-fhir-helpers",
+  "version": "3.0.0",
+  "title": "FHIR Helpers",
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "content": [
+    {
+      "contentType": "text/elm",
+      "url": "urn:hl7:davinci:crd:FHIRHelpers.json"
+    }
+  ]
+}
+
+
+{
+  "resourceType": "Library",
+  "id": "urn:hl7:davinci:crd:library-oxygen-therapy-prepopulate",
+  "version": "0.0.1",
+  "title": "Oxygen Therapy Prepopulation",
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": {
+        "reference": "urn:hl7:davinci:crd:library-fhir-helpers"
+      }
+    }
+  ],
+  "content": [
+    {
+      "contentType": "text/elm",
+      "url": "urn:hl7:davinci:crd:OxygenTherapyPrepopulation.json"
+    }
+  ]
+}

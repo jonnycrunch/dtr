@@ -2,6 +2,13 @@ library Demo version '1.0.0'
 using FHIR version '3.0.0'
 include FHIRHelpers version '3.0.0' called FHIRHelpers
 
+
+// This cql and questionnaire combo can be considered a partial implementation of these forms:
+// https://www.cms.gov/Medicare/CMS-Forms/CMS-Forms/Downloads/CMS484.pdf
+// https://www.cms.gov/Research-Statistics-Data-and-Systems/Computer-Data-and-Systems/Electronic-Clinical-Templates/Downloads/Home-Oxygen-Therapy-Order-Template-Draft-20170905-R40.pdf
+// with guidance from https://www.cms.gov/Outreach-and-Education/Medicare-Learning-Network-MLN/MLNProducts/Downloads/Home-Oxygen-Therapy-ICN908804.pdf
+
+
 codesystem "ICD-10-CM": 'http://hl7.org/fhir/sid/icd-10-cm'
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMED-CT": 'http://snomed.info/sct'
@@ -69,6 +76,11 @@ code "R09.02": 'R09.02' from "ICD-10-CM"
 //  Loinc codes for observations
 //Arterial_oxygen_saturation_Codes
 code "59408-5": '59408-5' from "LOINC"
+//Arterial_partial_pressure_of_oxygen_Codes
+code "2703-7": '2703-7' from "LOINC"
+//Arterial_oxygen_saturation_during_exercise_Codes
+code "89276-0": '89276-0' from "LOINC"
+//Note: cant find loinc code for partial pressure during exercise
 
 //Hematocrit_lab_test_Codes
 code "20570-8": '20570-8' from "LOINC"
@@ -109,30 +121,60 @@ define "Hypoxemia_Codes": { "R09.02" }
 
 // Observation code lists
 define "Arterial_oxygen_saturation_Codes": { "59408-5" }
+define "Arterial_partial_pressure_of_oxygen_Codes": { "2703-7" }
+define "Arterial_oxygen_saturation_during_exercise_Codes": { "89276-0" }
+
 define "Hematocrit_lab_test_Codes": { "20570-8", "31100-1", "32354-3", "41654-5", "41655-2", "4544-3", "4545-0", "71829-6", "71830-4", "71832-0", "71833-8" }
 
 // Other codes
 define "Immobilization_Codes": { "102491009", "129857008", "129859006", "160685001", "371632003", "8510008" }
 
+
 context Patient
 
 
+define function GetMiddleInitials(name FHIR.HumanName):
+  Substring(Combine((name.given given return Substring(given.value,0,1)),', '),3)
+
+
+define Today: Today()
+
+// basic patient stuff
 define PatientName: singleton from (Patient.name name where name.use.value = 'official')
 define PatientLastName: "PatientName".family.value
-define PatientMiddleInitial: Substring(Combine(("PatientName".given given return Substring(given.value,0,1)),', '),3)
+define PatientMiddleInitial: GetMiddleInitials("PatientName")
 define PatientFirstName: "PatientName".given[0].value
 define PatientGender: Patient.gender.value
+define PatientDateOfBirth: Patient.birthDate.value
 
+define PatientCoverageResource: singleton from (
+  [Coverage] coverage
+    // pull coverage resource id from the device request insurance extension
+    where ('Coverage/' + coverage.id) = ((device_request.extension ext where ext.url = 'http://build.fhir.org/ig/HL7/davinci-crd/STU3/ext-insurance.html')[0].value.reference.value))
+define PatientMedicareId: "PatientCoverageResource".subscriberId.value
+
+// coverage requirement info
 define RelevantDiagnoses: {
-  if exists([Condition: "COPD_Codes"]) then 'COPD' else 'null',
-  if exists([Condition: "Bronchiectasis_Codes"]) then 'Bronchiectasis' else 'null',
-  if exists([Condition: "Diffuse_interstitial_lung_disease_Codes"]) then 'Diffuse Interstitial Lung Disease' else 'null',
-  if exists([Condition: "Cystic_fibrosis_Codes"]) then 'Cystic Fibrosis' else 'null',
-  if exists([Condition: "Pulmonary_hypertension_Codes"]) then 'Pulmonary Hypertension' else 'null',
-  if exists([Condition: "Hypoxemia_Codes"]) then 'Hypoxemia' else 'null'
+  if exists(Confirmed(ActiveOrRecurring([Condition: "COPD_Codes"]))) then 'COPD' else 'null',
+  if exists(Confirmed(ActiveOrRecurring([Condition: "Bronchiectasis_Codes"]))) then 'Bronchiectasis' else 'null',
+  if exists(Confirmed(ActiveOrRecurring([Condition: "Diffuse_interstitial_lung_disease_Codes"]))) then 'Diffuse Interstitial Lung Disease' else 'null',
+  if exists(Confirmed(ActiveOrRecurring([Condition: "Cystic_fibrosis_Codes"]))) then 'Cystic Fibrosis' else 'null',
+  if exists(Confirmed(ActiveOrRecurring([Condition: "Pulmonary_hypertension_Codes"]))) then 'Pulmonary Hypertension' else 'null',
+  if exists(Confirmed(ActiveOrRecurring([Condition: "Hypoxemia_Codes"]))) then 'Hypoxemia' else 'null'
 } except { 'null' } // except 'null' is a workaround since I don't see how to remove actual nulls
 
+define ArterialOxygenSaturation: LowestObservation(WithUnit(Verified(ObservationLookBack([Observation: "Arterial_oxygen_saturation_Codes"], 3 months)), '%'))
+define ArterialPartialPressureOfOxygen: LowestObservation(WithUnit(Verified(ObservationLookBack([Observation: "Arterial_partial_pressure_of_oxygen_Codes"], 3 months)), 'mm[Hg]'))
+define ArterialOxygenSaturationExercise: LowestObservation(WithUnit(Verified(ObservationLookBack([Observation: "Arterial_oxygen_saturation_during_exercise_Codes"], 3 months)), '%'))
 
+define PatientMobile: not exists(Confirmed(ActiveOrRecurring([Condition: "Immobilization_Codes"])))
+
+define HematocritThatIsGreaterThanThreshold: HighestObservation(WithUnit(Verified(ObservationLookBack([Observation: "Hematocrit_lab_test_Codes"], 3 months)), '%'))
+define PatientHasHematocritThatIsGreaterThanThreshold: exists("HematocritThatIsGreaterThanThreshold")
+
+
+
+// device request info
 define DeviceRequestHcpcsCoding: singleton from (
   ((cast device_request.code as CodeableConcept).coding) coding
     where coding.system.value = 'https://bluebutton.cms.gov/resources/codesystem/hcpcs')
@@ -141,12 +183,14 @@ define DeviceRequestDescription: 'HCPCS ' + "DeviceRequestHcpcsCoding".code.valu
 define DeviceRequestedIsPortable: "DeviceRequestHcpcsCoding".code.value in { 'E0433', 'E0434', 'E0444', 'EO431', 'K0738', 'E0443', 'E1392' }
 define DeviceRequestedIsStationary: "DeviceRequestHcpcsCoding".code.value in { 'E0439', 'E0442', 'E0424', 'E0441', 'E1390', 'E1391' }
 
+
+// ordering provider info
 define OrderingProvider: singleton from (
   [Practitioner] practitioner
     where ('Practitioner/' + practitioner.id) = device_request.performer.reference.value)
-define OrderingProviderName: singleton from (OrderingProvider.name name where name.use.value = 'official')
+define OrderingProviderName: singleton from ("OrderingProvider".name name where name.use.value = 'official')
 define OrderingProviderLastName: "OrderingProviderName".family.value
-define OrderingProviderMiddleInitial: Substring(Combine(("OrderingProviderName".given given return Substring(given.value,0,1)),', '),3)
+define OrderingProviderMiddleInitial: GetMiddleInitials("OrderingProviderName")
 define OrderingProviderFirstName: "OrderingProviderName".given[0].value
 define OrderingProviderNPI: (singleton from (
   "OrderingProvider".identifier identifier
@@ -154,5 +198,47 @@ define OrderingProviderNPI: (singleton from (
 
 
 
-define ArterialOxygenSaturation: [Observation: "Arterial_oxygen_saturation_Codes"]
+
+
+
+
+
+
+
+////////////////////////////// Taken from CDS Connect Commons for FHIR, could replace with stu3 version of helper library
+define function ActiveOrRecurring(CondList List<Condition>):
+  CondList C where C.clinicalStatus.value in {'active', 'relapse'}
+
+define function ObservationLookBack(ObsList List<Observation>, LookBack System.Quantity):
+  ObsList O
+    let LookBackInterval: Interval[Now() - LookBack, Now()]
+    where (cast O.effective as dateTime).value in LookBackInterval
+      or NullSafeToInterval(cast O.effective as Period) overlaps LookBackInterval
+      or O.issued in LookBackInterval
+
+define function NullSafeToInterval(Pd FHIR.Period):
+  if Pd is not null then Interval[Pd."start".value, Pd."end".value] else null
+
+define function Verified(ObsList List<Observation>):
+  ObsList O where O.status.value in {'final', 'amended'}
+
+define function WithUnit(ObsList List<Observation>, Unit String):
+  ObsList O where (cast O.value as Quantity).unit.value = Unit or (cast O.value as Quantity).code.value = Unit
+
+define function HighestObservation(ObsList List<Observation>):
+  Max(ObsList O return NullSafeToQuantity(cast O.value as Quantity))
+
+define function Confirmed(CondList List<Condition>):
+  CondList C where C.verificationStatus.value = 'confirmed'
+
+define function NullSafeToQuantity(Qty FHIR.Quantity):
+  if Qty is not null then
+    System.Quantity {
+      value: Qty.value.value,
+      unit: Coalesce(Qty.unit.value, Qty.code.value)
+    }
+  else null
+
+define function LowestObservation(ObsList List<Observation>):
+  Min(ObsList O return NullSafeToQuantity(cast O.value as Quantity))
 
