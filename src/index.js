@@ -43,6 +43,7 @@ tokenPost.onload = function() {
     if (tokenPost.status === 200) {
       try {
   
+        console.log(tokenPost);
         auth_response = JSON.parse(tokenPost.responseText);
         console.log(auth_response);
       } catch (e) {

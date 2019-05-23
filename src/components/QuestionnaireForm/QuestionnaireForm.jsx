@@ -119,11 +119,16 @@ export default class QuestionnaireForm extends Component {
             // false if we need all behaviorType to be "all"
             const checkAny = enableCriteria.length > 1 ? item.enableBehavior === 'any' : false
             enableCriteria.forEach((rule) => {
+                console.log(rule);
                 const question = this.state.values[rule.question]
                 const answer = findValueByPrefix(rule, "answer");
-                if (typeof question === 'object' && typeof answer === 'object') {
+                if (typeof question === 'object' && typeof answer === 'object' && question!==null) {
                     if (rule.answerQuantity) {
                         // at the very least the unit and value need to be the same
+                        console.log(question);
+                        console.log(answer);
+                        console.log(item);
+                    
                         results.push(this.evaluateOperator(rule.operator, question.value, answer.value.toString())
                             && this.evaluateOperator(rule.operator, question.unit, answer.unit));
                     } else if (rule.answerCoding) {

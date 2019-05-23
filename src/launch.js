@@ -1,8 +1,8 @@
 import urlUtils from "./util/url";
 
 // Change this to the ID of the client that you registered with the SMART on FHIR authorization server.
-var clientId = "7c47a01b-b7d8-41cf-a290-8ed607108e70"; // RUSH Epic client id
-// var clientId = "c7ecff8d-5e91-48f2-b22e-f423c0c4c009"; // app orchard test client
+// var clientId = "7c47a01b-b7d8-41cf-a290-8ed607108e70"; // RUSH Epic client id
+var clientId = "c7ecff8d-5e91-48f2-b22e-f423c0c4c009"; // app orchard test client
 // var clientId = "20f831e3-a99b-4de0-8473-b334bd31b448"; // app orchard client
 // var clientId = "app-login"; // local client
 // For demonstration purposes, if you registered a confidential client
@@ -14,13 +14,14 @@ var secret = null; // set me, if confidential
 // These parameters will be received at launch time in the URL
 var serviceUri = urlUtils.getUrlParameter("iss");
 var launchContextId = urlUtils.getUrlParameter("launch");
+console.log("lci: " + launchContextId);
 
 // The scopes that the app will request from the authorization server
 // encoded in a space-separated string:
 //      1. permission to read all of the patient's record
 //      2. permission to launch the app in the specific context
-var scope = ["launch"].join(" ");
-
+var scope = ["openid", "profile", "launch", "user/Patient.read", "user/Practitioner.read"].join(" ");
+console.log(scope);
 // Generate a unique session key string (here we just generate a random number
 // for simplicity, but this is not 100% collision-proof)
 var state = Math.round(Math.random() * 100000000).toString();
@@ -41,7 +42,7 @@ conformanceGet.open("GET", conformanceUri);
 conformanceGet.setRequestHeader("Content-Type", "application/json");
 conformanceGet.setRequestHeader("Accept", "application/json");
 
-conformanceGet.onload = function() {
+conformanceGet.onloadend = function() {
   if (conformanceGet.status === 200) {
     try {
 
@@ -88,6 +89,26 @@ function redirect(conformanceStatement) {
   // finally, redirect the browser to the authorizatin server and pass the needed
   // parameters for the authorization request in the URL
   console.log(encodeURIComponent(scope));
+  console.log( authUri +
+    "?" +
+    "response_type=code&" +
+    "client_id=" +
+    encodeURIComponent(clientId) +
+    "&" +
+    "scope=" +
+    encodeURIComponent(scope) +
+    "&" +
+    "redirect_uri=" +
+    encodeURIComponent(redirectUri) +
+    "&" +
+    "aud=" +
+    encodeURIComponent(serviceUri) +
+    "&" +
+    "launch=" +
+    encodeURIComponent(launchContextId) +
+    "&" +
+    "state=" +
+    state);
   window.location.href =
     authUri +
     "?" +
